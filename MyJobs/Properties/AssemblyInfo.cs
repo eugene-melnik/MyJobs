@@ -1,22 +1,38 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Resources;
 
-// Information about this assembly is defined by the following attributes. 
-// Change them to the values specific to your project.
-[assembly: AssemblyTitle ("MyJobs")]
-[assembly: AssemblyDescription ("")]
-[assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("KPI")]
-[assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Melnik E.")]
-[assembly: AssemblyTrademark ("")]
-[assembly: AssemblyCulture ("")]
-// The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
-// The form "{Major}.{Minor}.*" will automatically update the build and revision,
-// and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion ("0.2.*")]
-// The following attributes are used to specify the signing key for the assembly, 
-// if desired. See the Mono documentation for more information about signing.
-//[assembly: AssemblyDelaySign(false)]
-//[assembly: AssemblyKeyFile("")]
+// Управление общими сведениями о сборке осуществляется с помощью 
+// набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
+// связанные со сборкой.
+[assembly: AssemblyTitle("MyJobs")]
+[assembly: AssemblyDescription("Program for notes")]
+[assembly: AssemblyConfiguration("Debug")]
+[assembly: AssemblyCompany("NTU KPI")]
+[assembly: AssemblyProduct("MyJobs")]
+[assembly: AssemblyCopyright("Copyright © Melnik E. 2014")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
+// Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
+// для COM-компонентов.  Если требуется обратиться к типу в этой сборке через 
+// COM, задайте атрибуту ComVisible значение TRUE для этого типа.
+[assembly: ComVisible(false)]
+
+// Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
+[assembly: Guid("23ff5c6e-7378-4587-86a0-4facccddf5a5")]
+
+// Сведения о версии сборки состоят из следующих четырех значений:
+//
+//      Основной номер версии
+//      Дополнительный номер версии 
+//      Номер построения
+//      Редакция
+//
+// Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
+// используя "*", как показано ниже:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("0.5.0.0")]
+[assembly: AssemblyFileVersion("0.5.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("en")]

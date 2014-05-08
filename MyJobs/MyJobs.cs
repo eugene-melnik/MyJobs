@@ -1,20 +1,18 @@
-using System;
-using Gtk;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
-namespace KPI
+namespace MyJobs
 {
-	class MyJobs
-	{
-		public static void Main(string[] args)
+    static class MyJobs
+    {
+        [STAThread]
+        static void Main()
         {
-            //Gdk.Threads.Init();
-            Gtk.Application.Init(Version.AppName, ref args);
-
-            MainWindow mainWin = new MainWindow();
-            mainWin.Hide();
-            mainWin.Load();
-
-            Gtk.Application.Run();
-		}
-	}
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormMain());
+        }
+    }
 }

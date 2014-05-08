@@ -1,18 +1,25 @@
-using System;
+﻿using System;
 
-namespace KPI
+namespace MyJobs
 {
-    public class Version
+    static class Version
     {
-        public static int VersionMajor = 0;
-        public static int VersionMinor = 2;
-        public static int VersionFix = 1;
+        /* Constants */
+        public static UInt16 AppVersionMajor = 0;
+        public static UInt16 AppVersionMinor = 5;
+        public static UInt16 AppVersionFix = 0;
 
-        public static string AppName = "MyJobs";
-        public static string VersionFull = VersionMajor.ToString() + "." + VersionMinor.ToString() + "." + VersionFix.ToString();
-        public static string AppNameFull = AppName + " v" + VersionFull;
+        public static String AppVersionFull = AppVersionMajor.ToString() + "."
+                                            + AppVersionMinor.ToString() + "."
+                                            + AppVersionFix.ToString();
 
-        public static string Author = "Melnik Eugene <jeka7js@gmail.com>";
+        public static String AppName = "MyJobs";
+
+        public static String AppNameFull = AppName + " v"
+                                         + AppVersionFull;
+
+        public static String AppLicense = "GNU GPL v2";
+        public static String AppAuthor = "Melnik Eugene <jeka7js@gmail.com>";
+        public static String[] AppTranslators = { "Ukrainian: Melnik Eugene <jeka7js@gmail.com>" };
     }
 }
-
