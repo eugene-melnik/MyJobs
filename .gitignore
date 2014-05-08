@@ -1,4 +1,3 @@
 MyJobs/bin
-MyJobs/gtk-gui/generated.cs
-MyJobs/MyJobs.userprefs
-MyJobs.userprefs
+MyJobs/obj
+MyJobs/MyJobs.csproj.user
