@@ -57,12 +57,19 @@ namespace MyJobs
                 jobsChanged = true;
             }
 
-            // Output data to the main window
             foreach (Job t in listJobs)
             {
+                // Looking for expired jobs
+                if (!t.Termless && (t.DeadlineDate > DateTime.Now))
+                {
+                    t.Status = JobStatus.Expired;
+                }
+
+                // Output data to the main window
                 AddItemInList(t);
             }
 
+            // End of processing
             splash.Close();
             this.Show();
         }
