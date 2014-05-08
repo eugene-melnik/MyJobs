@@ -15,15 +15,17 @@ namespace MyJobs
         }
 
         /* Events' handlers */
-        private void ActionNoStatute(Object sender, EventArgs e)
+        private void ActionTermless(Object sender, EventArgs e)
         {
-            if (checkNoStatute.Checked)
+            if (checkTermless.Checked)
             {
                 calendarDeadline.Enabled = false;
+                calendarDeadline.SelectionStart = DateTime.MinValue;
             }
             else
             {
                 calendarDeadline.Enabled = true;
+                calendarDeadline.SelectionStart = DateTime.Now;
             }
         }
 
@@ -31,8 +33,9 @@ namespace MyJobs
         {
             newJob.Title = textTitle.Text;
             newJob.Description = textDescription.Text;
-            newJob.Deadline = calendarDeadline.SelectionStart;
+            newJob.DeadlineDate = calendarDeadline.SelectionStart;
 
+            // Checking title text
             if (newJob.Title.Length == 0)
             {
                 MessageBox.Show(this, "Field \"Title\" can't be empty!", "Error", MessageBoxButtons.OK);
@@ -40,7 +43,9 @@ namespace MyJobs
                 return;
             }
 
-            if (newJob.Deadline <= DateTime.Now.AddDays(-1))  // <- yesterday
+            // Checking selected date
+            if ((newJob.DeadlineDate <= DateTime.Now.AddDays(-1))  // yesterday and before
+                && (newJob.DeadlineDate != DateTime.MinValue))     // termless
             {
                 MessageBox.Show(this, "You can't create overdue job!", "Error", MessageBoxButtons.OK);
                 calendarDeadline.Focus();

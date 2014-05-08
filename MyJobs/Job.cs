@@ -19,7 +19,7 @@ namespace MyJobs
             Status = JobStatus.Active;
             Title = "";
             Description = "";
-            Deadline = DateTime.Now;
+            DeadlineDate = DateTime.MinValue;
         }
 
         public Job(JobStatus status, String title, String description, DateTime deadline)
@@ -27,7 +27,7 @@ namespace MyJobs
             Status = status;
             Title = title;
             Description = description;
-            Deadline = deadline;
+            DeadlineDate = deadline;
         }
 
         /* Properties */
@@ -49,16 +49,28 @@ namespace MyJobs
             set { description = value; }
         }
 
-        public DateTime Deadline
+        public Boolean Termless
         {
-            get { return deadline; }
-            set { deadline = value; }
+            get { return (deadlineDate==DateTime.MinValue); }
+        }
+
+        public DateTime DeadlineDate
+        {
+            get { return deadlineDate; }
+            set { deadlineDate = value; }
+        }
+
+        public DateTime CompletedDate
+        {
+            get { return completedDate; }
+            set { completedDate = value; }
         }
         
         /* Variables */
         private JobStatus status;
         private String title;
         private String description;
-        private DateTime deadline;
+        private DateTime deadlineDate;
+        private DateTime completedDate;
     }
 }

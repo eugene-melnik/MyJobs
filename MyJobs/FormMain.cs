@@ -60,16 +60,7 @@ namespace MyJobs
             // Output data to the main window
             foreach (Job t in listJobs)
             {
-                ListViewItem item = new ListViewItem();
-                
-                if (t.Status == JobStatus.Completed)
-                {
-                    item.Checked = true;
-                }
-
-                item.SubItems.Add(t.Title);
-                item.SubItems.Add(t.Deadline.ToShortDateString());
-                listMain.Items.Add(item);
+                AddItemInList(t);
             }
 
             splash.Close();
@@ -111,13 +102,9 @@ namespace MyJobs
 
         private void ActionJobAdding(Object sender, Job newJob)
         {
+            AddItemInList(newJob);
             listJobs.Add(newJob);
             jobsChanged = true;
-
-            ListViewItem item = new ListViewItem();
-            item.SubItems.Add(newJob.Title);
-            item.SubItems.Add(newJob.Deadline.ToShortDateString());
-            listMain.Items.Add(item);
         }
 
         private void ActionAbout(Object sender, EventArgs e)
@@ -184,6 +171,28 @@ namespace MyJobs
             }
 
             return res;
+        }
+
+        private void AddItemInList(Job t)
+        {
+            ListViewItem item = new ListViewItem();
+            item.SubItems.Add(t.Title);
+
+            if (t.Status == JobStatus.Completed)
+            {
+                item.Checked = true;
+            }
+
+            if (t.Termless)
+            {
+                item.SubItems.Add("Termless");
+            }
+            else
+            {
+                item.SubItems.Add(t.DeadlineDate.ToShortDateString());
+            }
+
+            listMain.Items.Add(item);
         }
 
         /* Variables */

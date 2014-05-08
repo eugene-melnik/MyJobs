@@ -33,7 +33,7 @@
             this.textDescription = new System.Windows.Forms.TextBox();
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelDeadline = new System.Windows.Forms.Label();
-            this.checkNoStatute = new System.Windows.Forms.CheckBox();
+            this.checkTermless = new System.Windows.Forms.CheckBox();
             this.calendarDeadline = new System.Windows.Forms.MonthCalendar();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -86,16 +86,16 @@
             this.labelDeadline.TabIndex = 4;
             this.labelDeadline.Text = "Deadline:";
             // 
-            // checkNoStatute
+            // checkTermless
             // 
-            this.checkNoStatute.AutoSize = true;
-            this.checkNoStatute.Location = new System.Drawing.Point(15, 154);
-            this.checkNoStatute.Name = "checkNoStatute";
-            this.checkNoStatute.Size = new System.Drawing.Size(75, 17);
-            this.checkNoStatute.TabIndex = 3;
-            this.checkNoStatute.Text = "No statute";
-            this.checkNoStatute.UseVisualStyleBackColor = true;
-            this.checkNoStatute.CheckedChanged += new System.EventHandler(this.ActionNoStatute);
+            this.checkTermless.AutoSize = true;
+            this.checkTermless.Location = new System.Drawing.Point(15, 154);
+            this.checkTermless.Name = "checkTermless";
+            this.checkTermless.Size = new System.Drawing.Size(68, 17);
+            this.checkTermless.TabIndex = 3;
+            this.checkTermless.Text = "Termless";
+            this.checkTermless.UseVisualStyleBackColor = true;
+            this.checkTermless.CheckedChanged += new System.EventHandler(this.ActionTermless);
             // 
             // calendarDeadline
             // 
@@ -135,7 +135,7 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.calendarDeadline);
-            this.Controls.Add(this.checkNoStatute);
+            this.Controls.Add(this.checkTermless);
             this.Controls.Add(this.labelDeadline);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.textDescription);
@@ -160,7 +160,7 @@
         private System.Windows.Forms.TextBox textDescription;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelDeadline;
-        private System.Windows.Forms.CheckBox checkNoStatute;
+        private System.Windows.Forms.CheckBox checkTermless;
         private System.Windows.Forms.MonthCalendar calendarDeadline;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOK;
