@@ -6,8 +6,8 @@ namespace MyJobs
     {
         /* Constants */
         public static UInt16 AppVersionMajor = 0;
-        public static UInt16 AppVersionMinor = 5;
-        public static UInt16 AppVersionFix = 3;
+        public static UInt16 AppVersionMinor = 6;
+        public static UInt16 AppVersionFix = 1;
 
         public static String AppVersionFull = AppVersionMajor.ToString() + "."
                                             + AppVersionMinor.ToString() + "."
@@ -15,8 +15,7 @@ namespace MyJobs
 
         public static String AppName = "MyJobs";
 
-        public static String AppNameFull = AppName + " v"
-                                         + AppVersionFull;
+        public static String AppNameFull = AppName + " v" + AppVersionFull;
 
         public static String AppLicense = "GNU GPL v2";
         public static String AppAuthor = "Melnik Eugene <jeka7js@gmail.com>";
