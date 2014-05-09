@@ -60,7 +60,8 @@ namespace MyJobs
             foreach (Job t in listJobs)
             {
                 // Looking for expired jobs
-                if (!t.Termless && (t.DeadlineDate < DateTime.Now))
+                if (!t.Termless && (t.Status != JobStatus.Completed)
+                    && (t.DeadlineDate < DateTime.Now))
                 {
                     t.Status = JobStatus.Expired;
                 }
@@ -113,6 +114,29 @@ namespace MyJobs
             AddItemInList(newJob);
             listJobs.Add(newJob);
             jobsChanged = true;
+        }
+
+        private void ActionCompleteJob(Object sender, EventArgs e)
+        {
+            if (listMain.SelectedItems[0].Text == JobStatus.Completed.ToString())
+            {
+                return;
+            }
+
+            // Change job status on the screen
+            listMain.SelectedItems[0].Text = JobStatus.Completed.ToString();
+
+            // In the database
+            foreach (Job t in listJobs)
+            {
+                if (t.Key == (Int32)listMain.SelectedItems[0].Tag)
+                {
+                    t.Status = JobStatus.Completed;
+                    t.CompletedDate = DateTime.Now;
+                    jobsChanged = true;
+                    return;
+                }
+            }
         }
 
         private void ActionFind(Object sender, EventArgs e)
@@ -189,21 +213,13 @@ namespace MyJobs
 
         private void AddItemInList(Job t)
         {
-            ListViewItem item = new ListViewItem();
+            ListViewItem item = new ListViewItem(t.Status.ToString());
             item.SubItems.Add(t.Title);
-
-            if (t.Status == JobStatus.Completed)
-            {
-                item.Checked = true;
-            }
+            item.Tag = t.Key;
 
             if (t.Termless)
             {
                 item.SubItems.Add("Termless");
-            }
-            else if (t.Status == JobStatus.Expired)
-            {
-                item.SubItems.Add("Expired");
             }
             else
             {
