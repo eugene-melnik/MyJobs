@@ -211,6 +211,7 @@
             this.menuActionJobsFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.menuActionJobsFind.Size = new System.Drawing.Size(169, 22);
             this.menuActionJobsFind.Text = "&Find...";
+            this.menuActionJobsFind.Click += new System.EventHandler(this.ActionFind);
             // 
             // menuActionHelp
             // 
@@ -369,6 +370,7 @@
             this.toolsActionFind.Name = "toolsActionFind";
             this.toolsActionFind.Size = new System.Drawing.Size(23, 22);
             this.toolsActionFind.Text = "Find job";
+            this.toolsActionFind.Click += new System.EventHandler(this.ActionFind);
             // 
             // toolStripSeparator4
             // 

@@ -115,6 +115,12 @@ namespace MyJobs
             jobsChanged = true;
         }
 
+        private void ActionFind(Object sender, EventArgs e)
+        {
+            FormFindJob form = new FormFindJob(ref listJobs);
+            form.ShowDialog(this);
+        }
+
         private void ActionAbout(Object sender, EventArgs e)
         {
             FormAbout form = new FormAbout();
