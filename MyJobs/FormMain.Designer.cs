@@ -77,7 +77,7 @@
             this.statusLabelJobs = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLJobs = new System.Windows.Forms.ToolStripStatusLabel();
             this.listMain = new System.Windows.Forms.ListView();
-            this.colDone = new System.Windows.Forms.ColumnHeader();
+            this.colStatus = new System.Windows.Forms.ColumnHeader();
             this.colTitle = new System.Windows.Forms.ColumnHeader();
             this.colDeadline = new System.Windows.Forms.ColumnHeader();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -466,9 +466,8 @@
             // 
             // listMain
             // 
-            this.listMain.CheckBoxes = true;
             this.listMain.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colDone,
+            this.colStatus,
             this.colTitle,
             this.colDeadline});
             this.listMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -479,23 +478,22 @@
             this.listMain.TabIndex = 3;
             this.listMain.UseCompatibleStateImageBehavior = false;
             this.listMain.View = System.Windows.Forms.View.Details;
+            this.listMain.DoubleClick += new System.EventHandler(this.ActionCompleteJob);
             // 
-            // colDone
+            // colStatus
             // 
-            this.colDone.Text = "Done";
-            this.colDone.Width = 50;
+            this.colStatus.Text = "Status";
+            this.colStatus.Width = 65;
             // 
             // colTitle
             // 
             this.colTitle.Text = "Title";
-            this.colTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colTitle.Width = 220;
+            this.colTitle.Width = 230;
             // 
             // colDeadline
             // 
             this.colDeadline.Text = "Deadline";
-            this.colDeadline.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colDeadline.Width = 110;
+            this.colDeadline.Width = 85;
             // 
             // toolStripMenuItem2
             // 
@@ -568,7 +566,7 @@
         private System.Windows.Forms.ListView listMain;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader colDone;
+        private System.Windows.Forms.ColumnHeader colStatus;
         private System.Windows.Forms.ColumnHeader colTitle;
         private System.Windows.Forms.ColumnHeader colDeadline;
         private System.Windows.Forms.ToolStripMenuItem menuActionFile;
