@@ -16,6 +16,9 @@ namespace MyJobs
         /* Constructors */
         public Job()
         {
+            Random r = new Random((Int32)DateTime.Now.Ticks);
+            key = r.Next();
+
             Status = JobStatus.Active;
             Title = "";
             Description = "";
@@ -24,6 +27,9 @@ namespace MyJobs
 
         public Job(JobStatus status, String title, String description, DateTime deadline)
         {
+            Random r = new Random((Int32)DateTime.Now.Ticks);
+            key = r.Next();
+
             Status = status;
             Title = title;
             Description = description;
@@ -31,6 +37,11 @@ namespace MyJobs
         }
 
         /* Properties */
+        public Int32 Key
+        {
+            get { return key; }
+        }
+
         public JobStatus Status
         {
             get { return status; }
@@ -67,6 +78,7 @@ namespace MyJobs
         }
         
         /* Variables */
+        private Int32 key;
         private JobStatus status;
         private String title;
         private String description;
