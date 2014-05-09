@@ -75,7 +75,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.statusMain = new System.Windows.Forms.StatusStrip();
             this.statusLabelJobs = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLTotalJobs = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLJobs = new System.Windows.Forms.ToolStripStatusLabel();
             this.listMain = new System.Windows.Forms.ListView();
             this.colDone = new System.Windows.Forms.ColumnHeader();
             this.colTitle = new System.Windows.Forms.ColumnHeader();
@@ -444,7 +444,7 @@
             // 
             this.statusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabelJobs,
-            this.statusLTotalJobs});
+            this.statusLJobs});
             this.statusMain.Location = new System.Drawing.Point(0, 299);
             this.statusMain.Name = "statusMain";
             this.statusMain.Size = new System.Drawing.Size(392, 22);
@@ -456,11 +456,11 @@
             this.statusLabelJobs.Size = new System.Drawing.Size(99, 17);
             this.statusLabelJobs.Text = "Jobs (active/total):";
             // 
-            // statusLTotalJobs
+            // statusLJobs
             // 
-            this.statusLTotalJobs.Name = "statusLTotalJobs";
-            this.statusLTotalJobs.Size = new System.Drawing.Size(23, 17);
-            this.statusLTotalJobs.Text = "0/0";
+            this.statusLJobs.Name = "statusLJobs";
+            this.statusLJobs.Size = new System.Drawing.Size(23, 17);
+            this.statusLJobs.Text = "0/0";
             // 
             // listMain
             // 
@@ -591,7 +591,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton toolsActionExit;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelJobs;
-        private System.Windows.Forms.ToolStripStatusLabel statusLTotalJobs;
+        private System.Windows.Forms.ToolStripStatusLabel statusLJobs;
         private System.Windows.Forms.ToolStripMenuItem toolsActionStatistic;
         private System.Windows.Forms.Timer timerAutosave;
     }

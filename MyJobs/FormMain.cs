@@ -60,7 +60,7 @@ namespace MyJobs
             foreach (Job t in listJobs)
             {
                 // Looking for expired jobs
-                if (!t.Termless && (t.DeadlineDate > DateTime.Now))
+                if (!t.Termless && (t.DeadlineDate < DateTime.Now))
                 {
                     t.Status = JobStatus.Expired;
                 }
@@ -70,6 +70,7 @@ namespace MyJobs
             }
 
             // End of processing
+            statusLJobs.Text = GetNumberOfJobs(JobStatus.Active).ToString() + "/" + listJobs.Count;
             splash.Close();
             this.Show();
         }
@@ -120,7 +121,7 @@ namespace MyJobs
             form.ShowDialog(this);
         }
 
-        private void ActionClosing(object sender, FormClosingEventArgs e)
+        private void ActionClosing(Object sender, FormClosingEventArgs e)
         {
             // Works only when close button on window decoration were pressed
             if ((e.CloseReason == CloseReason.UserClosing) && config.AppHideToTrayOnClose)
@@ -193,6 +194,10 @@ namespace MyJobs
             if (t.Termless)
             {
                 item.SubItems.Add("Termless");
+            }
+            else if (t.Status == JobStatus.Expired)
+            {
+                item.SubItems.Add("Expired");
             }
             else
             {
