@@ -20,7 +20,7 @@ namespace MyJobs
             if (checkTermless.Checked)
             {
                 calendarDeadline.Enabled = false;
-                calendarDeadline.SelectionStart = DateTime.MinValue;
+                calendarDeadline.SelectionStart = DateTime.MinValue; // for termless job
             }
             else
             {
@@ -38,7 +38,7 @@ namespace MyJobs
             // Checking title text
             if (newJob.Title.Length == 0)
             {
-                MessageBox.Show(this, "Field \"Title\" can't be empty!", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Field \"Title\" can't be empty!", "Error");
                 textTitle.Focus();
                 return;
             }
@@ -47,7 +47,7 @@ namespace MyJobs
             if ((newJob.DeadlineDate <= DateTime.Now.AddDays(-1))  // yesterday and before
                 && (newJob.DeadlineDate != DateTime.MinValue))     // termless
             {
-                MessageBox.Show(this, "You can't create overdue job!", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "You can't create expired job!", "Error");
                 calendarDeadline.Focus();
                 return;
             }

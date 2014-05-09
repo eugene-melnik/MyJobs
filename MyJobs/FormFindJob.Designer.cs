@@ -33,10 +33,10 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.labelResults = new System.Windows.Forms.Label();
             this.listMain = new System.Windows.Forms.ListView();
-            this.columnStatus = new System.Windows.Forms.ColumnHeader();
-            this.columnTitle = new System.Windows.Forms.ColumnHeader();
-            this.columnDeadline = new System.Windows.Forms.ColumnHeader();
-            this.columnCompleted = new System.Windows.Forms.ColumnHeader();
+            this.colStatus = new System.Windows.Forms.ColumnHeader();
+            this.colTitle = new System.Windows.Forms.ColumnHeader();
+            this.colDeadline = new System.Windows.Forms.ColumnHeader();
+            this.colCompleted = new System.Windows.Forms.ColumnHeader();
             this.checkActive = new System.Windows.Forms.CheckBox();
             this.checkCompleted = new System.Windows.Forms.CheckBox();
             this.checkExpired = new System.Windows.Forms.CheckBox();
@@ -82,10 +82,10 @@
             // listMain
             // 
             this.listMain.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnStatus,
-            this.columnTitle,
-            this.columnDeadline,
-            this.columnCompleted});
+            this.colStatus,
+            this.colTitle,
+            this.colDeadline,
+            this.colCompleted});
             this.listMain.Location = new System.Drawing.Point(13, 106);
             this.listMain.Name = "listMain";
             this.listMain.Size = new System.Drawing.Size(480, 168);
@@ -93,28 +93,25 @@
             this.listMain.UseCompatibleStateImageBehavior = false;
             this.listMain.View = System.Windows.Forms.View.Details;
             // 
-            // columnStatus
+            // colStatus
             // 
-            this.columnStatus.Text = "Status";
-            this.columnStatus.Width = 50;
+            this.colStatus.Text = "Status";
+            this.colStatus.Width = 65;
             // 
-            // columnTitle
+            // colTitle
             // 
-            this.columnTitle.Text = "Title";
-            this.columnTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnTitle.Width = 220;
+            this.colTitle.Text = "Title";
+            this.colTitle.Width = 235;
             // 
-            // columnDeadline
+            // colDeadline
             // 
-            this.columnDeadline.Text = "Deadline";
-            this.columnDeadline.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnDeadline.Width = 100;
+            this.colDeadline.Text = "Deadline";
+            this.colDeadline.Width = 85;
             // 
-            // columnCompleted
+            // colCompleted
             // 
-            this.columnCompleted.Text = "Completed";
-            this.columnCompleted.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnCompleted.Width = 100;
+            this.colCompleted.Text = "Completed";
+            this.colCompleted.Width = 85;
             // 
             // checkActive
             // 
@@ -190,10 +187,10 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label labelResults;
         private System.Windows.Forms.ListView listMain;
-        private System.Windows.Forms.ColumnHeader columnStatus;
-        private System.Windows.Forms.ColumnHeader columnTitle;
-        private System.Windows.Forms.ColumnHeader columnDeadline;
-        private System.Windows.Forms.ColumnHeader columnCompleted;
+        private System.Windows.Forms.ColumnHeader colStatus;
+        private System.Windows.Forms.ColumnHeader colTitle;
+        private System.Windows.Forms.ColumnHeader colDeadline;
+        private System.Windows.Forms.ColumnHeader colCompleted;
         private System.Windows.Forms.CheckBox checkActive;
         private System.Windows.Forms.CheckBox checkCompleted;
         private System.Windows.Forms.CheckBox checkExpired;

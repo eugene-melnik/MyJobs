@@ -29,10 +29,11 @@ namespace MyJobs
         {
             if (textKeyword.Text.Length == 0)
             {
-                MessageBox.Show(this, "Input keyword first!", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Input keyword first!", "Error");
                 return;
             }
 
+            // Clear old search results
             listMain.Items.Clear();
 
             foreach (Job t in listJobs)
