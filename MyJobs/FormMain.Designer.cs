@@ -198,6 +198,7 @@
             this.menuActionJobsRemove.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.menuActionJobsRemove.Size = new System.Drawing.Size(169, 22);
             this.menuActionJobsRemove.Text = "&Remove...";
+            this.menuActionJobsRemove.Click += new System.EventHandler(this.ActionRemoveJob);
             // 
             // toolStripMenuItem4
             // 
@@ -356,6 +357,7 @@
             this.toolsActionRemove.Name = "toolsActionRemove";
             this.toolsActionRemove.Size = new System.Drawing.Size(23, 22);
             this.toolsActionRemove.Text = "Remove job";
+            this.toolsActionRemove.Click += new System.EventHandler(this.ActionRemoveJob);
             // 
             // toolStripSeparator3
             // 

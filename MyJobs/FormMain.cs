@@ -76,6 +76,55 @@ namespace MyJobs
             this.Show();
         }
 
+        private void ActionAutosave(Object sender, EventArgs e)
+        {
+            if (jobsChanged)
+            {
+                try
+                {
+                    FileStream f = new FileStream(config.DatabaseFileName, FileMode.Create);
+                    BinaryFormatter ser = new BinaryFormatter();
+                    ser.Serialize(f, listJobs);
+                    f.Close();
+                    jobsChanged = false;
+                }
+                catch (Exception ex)
+                {
+                    Log.AppendMessage(ex.Message);
+                    MessageBox.Show(this, ex.Message, "Saving error", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        // Menu File
+        private void ActionClosing(Object sender, FormClosingEventArgs e)
+        {
+            // Works only when close button on window decoration were pressed
+            if ((e.CloseReason == CloseReason.UserClosing) && config.AppHideToTrayOnClose)
+            {
+                WindowState = FormWindowState.Minimized;
+                e.Cancel = true;
+            }
+        }
+
+        private void ActionExit(Object sender, EventArgs e)
+        {
+            // Saving main window state
+            config.WindowState = WindowState;
+            config.WindowWidth = Width;
+            config.WindowHeight = Height;
+            config.WindowLeft = Left;
+            config.WindowTop = Top;
+            config.SaveConfig();
+
+            // Saving database
+            ActionAutosave(this, null);
+
+            // And exit
+            Application.Exit();
+        }
+
+        // Menu edit
         private void ActionShowToolbar(Object sender, EventArgs e)
         {
             if ((config.WindowShowToolbar = menuActionEditShowToolbar.Checked) == true)
@@ -102,6 +151,7 @@ namespace MyJobs
             form.ShowDialog(this);
         }
 
+        // Menu job
         private void ActionCreateJob(Object sender, EventArgs e)
         {
             FormCreateJob form = new FormCreateJob();
@@ -114,6 +164,31 @@ namespace MyJobs
             AddItemInList(newJob);
             listJobs.Add(newJob);
             jobsChanged = true;
+        }
+
+        private void ActionRemoveJob(Object sender, EventArgs e)
+        {
+            if (listMain.SelectedItems.Count == 0)
+            {
+                MessageBox.Show(this, "Nothing to delete! Select item(s) first.", "Error");
+                return;
+            }
+
+            DialogResult res = MessageBox.Show(this,
+                "Do you realy want to delete selected job(s)?",                    // text
+                "Removing jobs (" + listMain.SelectedItems.Count.ToString() + ")", // caption
+                MessageBoxButtons.YesNo);
+
+            if (res == DialogResult.Yes)
+            {
+                jobsChanged = true;
+
+                foreach (ListViewItem t in listMain.SelectedItems)
+                {
+                    RemoveJob((Int32)t.Tag);
+                    listMain.Items.Remove(t);
+                }
+            }
         }
 
         private void ActionCompleteJob(Object sender, EventArgs e)
@@ -145,57 +220,11 @@ namespace MyJobs
             form.ShowDialog(this);
         }
 
+        // Menu help
         private void ActionAbout(Object sender, EventArgs e)
         {
             FormAbout form = new FormAbout();
             form.ShowDialog(this);
-        }
-
-        private void ActionClosing(Object sender, FormClosingEventArgs e)
-        {
-            // Works only when close button on window decoration were pressed
-            if ((e.CloseReason == CloseReason.UserClosing) && config.AppHideToTrayOnClose)
-            {
-                WindowState = FormWindowState.Minimized;
-                e.Cancel = true;
-            }
-        }
-
-        private void ActionExit(Object sender, EventArgs e)
-        {
-            // Saving main window state
-            config.WindowState = WindowState;
-            config.WindowWidth = Width;
-            config.WindowHeight = Height;
-            config.WindowLeft = Left;
-            config.WindowTop = Top;
-            config.SaveConfig();
-
-            // Saving database
-            ActionAutosave(this, null);
-
-            // And exit
-            Application.Exit();
-        }
-
-        private void ActionAutosave(Object sender, EventArgs e)
-        {
-            if (jobsChanged)
-            {
-                try
-                {
-                    FileStream f = new FileStream(config.DatabaseFileName, FileMode.Create);
-                    BinaryFormatter ser = new BinaryFormatter();
-                    ser.Serialize(f, listJobs);
-                    f.Close();
-                    jobsChanged = false;
-                }
-                catch (Exception ex)
-                {
-                    Log.AppendMessage(ex.Message);
-                    MessageBox.Show(this, ex.Message, "Saving error", MessageBoxButtons.OK);
-                }
-            }
         }
 
         /* Additional functions */
@@ -227,6 +256,18 @@ namespace MyJobs
             }
 
             listMain.Items.Add(item);
+        }
+
+        private void RemoveJob(Int32 key)
+        {
+            foreach (Job t in listJobs)
+            {
+                if (t.Key == key)
+                {
+                    listJobs.Remove(t);
+                    return;
+                }
+            }
         }
 
         /* Variables */
