@@ -116,6 +116,13 @@ namespace MyJobs.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _Jobs_SetCompleted {
+            get {
+                object obj = ResourceManager.GetObject("_Jobs_SetCompleted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bg {
             get {
                 object obj = ResourceManager.GetObject("bg", resourceCulture);
@@ -126,20 +133,6 @@ namespace MyJobs.Properties {
         internal static System.Drawing.Bitmap cat_poo {
             get {
                 object obj = ResourceManager.GetObject("cat_poo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Dialog_Cancel {
-            get {
-                object obj = ResourceManager.GetObject("Dialog_Cancel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Dialog_Ok {
-            get {
-                object obj = ResourceManager.GetObject("Dialog_Ok", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

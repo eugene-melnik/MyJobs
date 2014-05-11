@@ -6,8 +6,8 @@ namespace MyJobs
     {
         /* Constants */
         public static UInt16 AppVersionMajor = 0;
-        public static UInt16 AppVersionMinor = 6;
-        public static UInt16 AppVersionFix = 5;
+        public static UInt16 AppVersionMinor = 7;
+        public static UInt16 AppVersionFix = 0;
 
         public static String AppVersionFull = AppVersionMajor.ToString() + "."
                                             + AppVersionMinor.ToString() + "."

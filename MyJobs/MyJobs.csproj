@@ -184,9 +184,6 @@
     <None Include="Resources\4-Help-About.svg.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dialog-Cancel.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Dialog-Ok.svg.png" />
   </ItemGroup>
   <ItemGroup>

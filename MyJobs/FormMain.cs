@@ -281,6 +281,18 @@ namespace MyJobs
             form.ShowDialog(this);
         }
 
+        // ListView context menu
+        private void ActionContextMenu(Object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listMain.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    listMainContextMenu.Show(Cursor.Position);
+                }
+            }
+        }
+
         /* Additional functions */
         private Int32 GetNumberOfJobs(JobStatus status)
         {

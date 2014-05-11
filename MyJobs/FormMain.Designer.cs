@@ -83,9 +83,16 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerAutosave = new System.Windows.Forms.Timer(this.components);
+            this.listMainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmActionSetCompleted = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmActionDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmActionEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmActionRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolsMain.SuspendLayout();
             this.statusMain.SuspendLayout();
+            this.listMainContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -482,6 +489,7 @@
             this.listMain.TabIndex = 3;
             this.listMain.UseCompatibleStateImageBehavior = false;
             this.listMain.View = System.Windows.Forms.View.Details;
+            this.listMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ActionContextMenu);
             this.listMain.DoubleClick += new System.EventHandler(this.ActionCompleteJob);
             // 
             // colStatus
@@ -517,6 +525,57 @@
             this.timerAutosave.Interval = 200000;
             this.timerAutosave.Tick += new System.EventHandler(this.ActionAutosave);
             // 
+            // listMainContextMenu
+            // 
+            this.listMainContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmActionSetCompleted,
+            this.toolStripSeparator5,
+            this.cmActionDetails,
+            this.cmActionEdit,
+            this.cmActionRemove});
+            this.listMainContextMenu.Name = "listMainContextMenu";
+            this.listMainContextMenu.Size = new System.Drawing.Size(157, 120);
+            // 
+            // cmActionSetCompleted
+            // 
+            this.cmActionSetCompleted.Image = global::MyJobs.Properties.Resources._Jobs_SetCompleted;
+            this.cmActionSetCompleted.Name = "cmActionSetCompleted";
+            this.cmActionSetCompleted.Size = new System.Drawing.Size(153, 22);
+            this.cmActionSetCompleted.Text = "Set completed";
+            this.cmActionSetCompleted.Click += new System.EventHandler(this.ActionCompleteJob);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(150, 6);
+            // 
+            // cmActionDetails
+            // 
+            this.cmActionDetails.Image = global::MyJobs.Properties.Resources._4_Help_About;
+            this.cmActionDetails.Name = "cmActionDetails";
+            this.cmActionDetails.ShortcutKeyDisplayString = "";
+            this.cmActionDetails.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.cmActionDetails.Size = new System.Drawing.Size(156, 22);
+            this.cmActionDetails.Text = "Details";
+            // 
+            // cmActionEdit
+            // 
+            this.cmActionEdit.Image = global::MyJobs.Properties.Resources._3_Jobs_Edit;
+            this.cmActionEdit.Name = "cmActionEdit";
+            this.cmActionEdit.ShortcutKeyDisplayString = "Ctrl+E";
+            this.cmActionEdit.Size = new System.Drawing.Size(156, 22);
+            this.cmActionEdit.Text = "Edit";
+            this.cmActionEdit.Click += new System.EventHandler(this.ActionEditJob);
+            // 
+            // cmActionRemove
+            // 
+            this.cmActionRemove.Image = global::MyJobs.Properties.Resources._3_Jobs_Remove;
+            this.cmActionRemove.Name = "cmActionRemove";
+            this.cmActionRemove.ShortcutKeyDisplayString = "Del";
+            this.cmActionRemove.Size = new System.Drawing.Size(156, 22);
+            this.cmActionRemove.Text = "Remove";
+            this.cmActionRemove.Click += new System.EventHandler(this.ActionRemoveJob);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -538,6 +597,7 @@
             this.toolsMain.PerformLayout();
             this.statusMain.ResumeLayout(false);
             this.statusMain.PerformLayout();
+            this.listMainContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,6 +658,12 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLJobs;
         private System.Windows.Forms.ToolStripMenuItem toolsActionStatistic;
         private System.Windows.Forms.Timer timerAutosave;
+        private System.Windows.Forms.ContextMenuStrip listMainContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem cmActionSetCompleted;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem cmActionDetails;
+        private System.Windows.Forms.ToolStripMenuItem cmActionEdit;
+        private System.Windows.Forms.ToolStripMenuItem cmActionRemove;
     }
 }
 
