@@ -57,11 +57,13 @@ namespace MyJobs
                 jobsChanged = true;
             }
 
+            listJobs.Sort();
+
             foreach (Job t in listJobs)
             {
                 // Looking for expired jobs
                 if (!t.Termless && (t.Status != JobStatus.Completed)
-                    && (t.DeadlineDate < DateTime.Now))
+                    && (t.DeadlineDate <= DateTime.Now.AddDays(-1))) // yesterday and before
                 {
                     t.Status = JobStatus.Expired;
                 }
@@ -166,6 +168,58 @@ namespace MyJobs
             jobsChanged = true;
         }
 
+        private void ActionEditJob(Object sender, EventArgs e)
+        {
+            if (listMain.SelectedItems.Count == 0)
+            {
+                MessageBox.Show(this, "Nothing to edit! Select job first.", "Error");
+                return;
+            }
+
+            if (listMain.SelectedItems[0].Text == JobStatus.Completed.ToString())
+            {
+                MessageBox.Show(this, "Can't edit already completed job.", "Error");
+                return;
+            }
+
+            FormCreateJob form = new FormCreateJob(GetJobByKey((Int32)listMain.SelectedItems[0].Tag));
+            form.OnJobAddition += new FormCreateJob.JobAdditionHandler(AtionJobEditing);
+            form.ShowDialog(this);
+        }
+
+        private void AtionJobEditing(Object sender, Job editedJob)
+        {
+            foreach (ListViewItem t in listMain.Items)
+            {
+                if (editedJob.Key == (Int32)t.Tag)
+                {
+                    t.SubItems[1].Text = editedJob.Title;
+
+                    if (editedJob.Termless)
+                    {
+                        t.SubItems[2].Text = "Termless";
+                    }
+                    else
+                    {
+                        t.SubItems[2].Text = editedJob.DeadlineDate.ToShortDateString();
+                    }
+
+                    break;
+                }
+            }
+
+            for(Int32 i = 0; i < listJobs.Count;i++)
+            {
+                if (((Job)listJobs[i]).Key == editedJob.Key)
+                {
+                    listJobs[i] = editedJob;
+                    break;
+                }
+            }
+
+            jobsChanged = true;
+        }
+
         private void ActionRemoveJob(Object sender, EventArgs e)
         {
             if (listMain.SelectedItems.Count == 0)
@@ -185,7 +239,7 @@ namespace MyJobs
 
                 foreach (ListViewItem t in listMain.SelectedItems)
                 {
-                    RemoveJob((Int32)t.Tag);
+                    RemoveJobByKey((Int32)t.Tag);
                     listMain.Items.Remove(t);
                 }
             }
@@ -258,7 +312,7 @@ namespace MyJobs
             listMain.Items.Add(item);
         }
 
-        private void RemoveJob(Int32 key)
+        private void RemoveJobByKey(Int32 key)
         {
             foreach (Job t in listJobs)
             {
@@ -268,6 +322,19 @@ namespace MyJobs
                     return;
                 }
             }
+        }
+
+        private Job GetJobByKey(Int32 key)
+        {
+            foreach (Job t in listJobs)
+            {
+                if (t.Key == key)
+                {
+                    return t;
+                }
+            }
+
+            return null;
         }
 
         /* Variables */

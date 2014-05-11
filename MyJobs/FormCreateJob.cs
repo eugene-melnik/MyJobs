@@ -14,6 +14,28 @@ namespace MyJobs
             newJob = new Job();
         }
 
+        // Edit job mode
+        public FormCreateJob(Job job)
+        {
+            InitializeComponent();
+            Text = "Edit job";
+            Icon = Resources.Jobs_Edit_Icon_16;
+            newJob = job;
+
+            textTitle.Text = newJob.Title;
+            textDescription.Text = newJob.Description;
+
+            if (newJob.Termless)
+            {
+                checkTermless.Checked = true;
+                ActionTermless(this, null);
+            }
+            else
+            {
+                calendarDeadline.SelectionStart = newJob.DeadlineDate;
+            }
+        }
+
         /* Events' handlers */
         private void ActionTermless(Object sender, EventArgs e)
         {
@@ -52,7 +74,11 @@ namespace MyJobs
                 return;
             }
 
-            OnJobAddition(this, newJob);
+            if (OnJobAddition != null)
+            {
+                OnJobAddition(this, newJob);
+            }
+
             Close();
         }
 

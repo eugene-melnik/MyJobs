@@ -11,7 +11,7 @@ namespace MyJobs
     }
 
     [Serializable]
-    public class Job
+    public class Job : IComparable
     {
         /* Constructors */
         public Job()
@@ -84,5 +84,27 @@ namespace MyJobs
         private String description;
         private DateTime deadlineDate;
         private DateTime completedDate;
+
+        /* IComparable implementation */
+        public int CompareTo(Object obj)
+        {
+            Job that = (Job)obj;
+
+            if ((this.Status == JobStatus.Completed)
+                || (this.Termless == true)
+                || (that.Status == JobStatus.Expired))
+            {
+                return 1;
+            }
+
+            if ((that.Status == JobStatus.Completed)
+                || (that.Termless == true)
+                || (this.Status == JobStatus.Expired))
+            {
+                return -1;
+            }
+
+            return this.DeadlineDate.CompareTo(that.DeadlineDate);
+        }
     }
 }

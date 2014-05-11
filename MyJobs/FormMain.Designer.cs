@@ -190,6 +190,7 @@
             this.menuActionJobsEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.menuActionJobsEdit.Size = new System.Drawing.Size(169, 22);
             this.menuActionJobsEdit.Text = "Ed&it...";
+            this.menuActionJobsEdit.Click += new System.EventHandler(this.ActionEditJob);
             // 
             // menuActionJobsRemove
             // 
@@ -348,6 +349,7 @@
             this.tollsActionEdit.Name = "tollsActionEdit";
             this.tollsActionEdit.Size = new System.Drawing.Size(23, 22);
             this.tollsActionEdit.Text = "Edit job";
+            this.tollsActionEdit.Click += new System.EventHandler(this.ActionEditJob);
             // 
             // toolsActionRemove
             // 
