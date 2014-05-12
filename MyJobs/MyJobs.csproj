@@ -82,6 +82,12 @@
     <Compile Include="FormFindJob.Designer.cs">
       <DependentUpon>FormFindJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormJobDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJobDetails.Designer.cs">
+      <DependentUpon>FormJobDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFindJob.resx">
       <DependentUpon>FormFindJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormJobDetails.resx">
+      <DependentUpon>FormJobDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

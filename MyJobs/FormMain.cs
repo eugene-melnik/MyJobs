@@ -293,6 +293,12 @@ namespace MyJobs
             }
         }
 
+        private void ActionJobDetails(Object sender, EventArgs e)
+        {
+            FormJobDetails form = new FormJobDetails(GetJobByKey((Int32)listMain.SelectedItems[0].Tag));
+            form.ShowDialog(this);
+        }
+
         /* Additional functions */
         private Int32 GetNumberOfJobs(JobStatus status)
         {

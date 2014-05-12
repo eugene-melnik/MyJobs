@@ -557,6 +557,7 @@
             this.cmActionDetails.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.cmActionDetails.Size = new System.Drawing.Size(156, 22);
             this.cmActionDetails.Text = "Details";
+            this.cmActionDetails.Click += new System.EventHandler(this.ActionJobDetails);
             // 
             // cmActionEdit
             // 
