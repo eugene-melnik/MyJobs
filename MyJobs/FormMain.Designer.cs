@@ -89,10 +89,16 @@
             this.cmActionDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmActionEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmActionRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmtiActionOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmtiActionExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolsMain.SuspendLayout();
             this.statusMain.SuspendLayout();
             this.listMainContextMenu.SuspendLayout();
+            this.trayIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -534,20 +540,20 @@
             this.cmActionEdit,
             this.cmActionRemove});
             this.listMainContextMenu.Name = "listMainContextMenu";
-            this.listMainContextMenu.Size = new System.Drawing.Size(157, 120);
+            this.listMainContextMenu.Size = new System.Drawing.Size(157, 98);
             // 
             // cmActionSetCompleted
             // 
             this.cmActionSetCompleted.Image = global::MyJobs.Properties.Resources._Jobs_SetCompleted;
             this.cmActionSetCompleted.Name = "cmActionSetCompleted";
-            this.cmActionSetCompleted.Size = new System.Drawing.Size(153, 22);
+            this.cmActionSetCompleted.Size = new System.Drawing.Size(156, 22);
             this.cmActionSetCompleted.Text = "Set completed";
             this.cmActionSetCompleted.Click += new System.EventHandler(this.ActionCompleteJob);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(153, 6);
             // 
             // cmActionDetails
             // 
@@ -577,6 +583,41 @@
             this.cmActionRemove.Text = "Remove";
             this.cmActionRemove.Click += new System.EventHandler(this.ActionRemoveJob);
             // 
+            // trayIcon
+            // 
+            this.trayIcon.ContextMenuStrip = this.trayIconContextMenu;
+            this.trayIcon.DoubleClick += new System.EventHandler(this.ActionShowHide);
+            // 
+            // trayIconContextMenu
+            // 
+            this.trayIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmtiActionOpen,
+            this.toolStripSeparator6,
+            this.cmtiActionExit});
+            this.trayIconContextMenu.Name = "trayIconContextMenu";
+            this.trayIconContextMenu.Size = new System.Drawing.Size(153, 76);
+            // 
+            // cmtiActionOpen
+            // 
+            this.cmtiActionOpen.Image = global::MyJobs.Properties.Resources._0_MyJobs_MainIcon_48;
+            this.cmtiActionOpen.Name = "cmtiActionOpen";
+            this.cmtiActionOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmtiActionOpen.Text = "Open";
+            this.cmtiActionOpen.Click += new System.EventHandler(this.ActionShowHide);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(108, 6);
+            // 
+            // cmtiActionExit
+            // 
+            this.cmtiActionExit.Image = global::MyJobs.Properties.Resources._1_File_Exit_16;
+            this.cmtiActionExit.Name = "cmtiActionExit";
+            this.cmtiActionExit.Size = new System.Drawing.Size(152, 22);
+            this.cmtiActionExit.Text = "Exit";
+            this.cmtiActionExit.Click += new System.EventHandler(this.ActionExit);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,6 +640,7 @@
             this.statusMain.ResumeLayout(false);
             this.statusMain.PerformLayout();
             this.listMainContextMenu.ResumeLayout(false);
+            this.trayIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,6 +707,11 @@
         private System.Windows.Forms.ToolStripMenuItem cmActionDetails;
         private System.Windows.Forms.ToolStripMenuItem cmActionEdit;
         private System.Windows.Forms.ToolStripMenuItem cmActionRemove;
+        private System.Windows.Forms.NotifyIcon trayIcon;
+        private System.Windows.Forms.ContextMenuStrip trayIconContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem cmtiActionOpen;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem cmtiActionExit;
     }
 }
 

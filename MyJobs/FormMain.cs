@@ -15,6 +15,9 @@ namespace MyJobs
             InitializeComponent();
             Text = Version.AppNameFull;
             Icon = Resources.MyJobs_MainIcon_16;
+
+            trayIcon.Icon = Resources.MyJobs_MainIcon_16;
+            trayIcon.Text = Version.AppNameFull;
         }
 
         /* Events' handlers */
@@ -102,9 +105,10 @@ namespace MyJobs
         private void ActionClosing(Object sender, FormClosingEventArgs e)
         {
             // Works only when close button on window decoration were pressed
-            if ((e.CloseReason == CloseReason.UserClosing) && config.AppHideToTrayOnClose)
+            if ((e.CloseReason == CloseReason.UserClosing)
+                && config.AppHideToTrayOnClose)
             {
-                WindowState = FormWindowState.Minimized;
+                ActionShowHide(this, null);
                 e.Cancel = true;
             }
         }
@@ -297,6 +301,23 @@ namespace MyJobs
         {
             FormJobDetails form = new FormJobDetails(GetJobByKey((Int32)listMain.SelectedItems[0].Tag));
             form.ShowDialog(this);
+        }
+
+        // Tray icon
+        private void ActionShowHide(Object sender, EventArgs e)
+        {
+            if (trayIcon.Visible == false)
+            {
+                Hide();
+                ShowInTaskbar = false;
+                trayIcon.Visible = true;
+            }
+            else
+            {
+                Show();
+                ShowInTaskbar = true;
+                trayIcon.Visible = false;
+            }
         }
 
         /* Additional functions */
