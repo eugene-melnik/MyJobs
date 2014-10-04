@@ -1,5 +1,5 @@
 ### MyJobs v0.7.4
-#### Small program for taking notes on.
+#### Small program for taking notes.
 
 ===
 
